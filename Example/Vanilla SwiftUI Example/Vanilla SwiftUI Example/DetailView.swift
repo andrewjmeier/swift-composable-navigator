@@ -13,6 +13,7 @@ struct DetailScreen: Screen {
         },
         nesting: {
           CapacityScreen.Builder()
+            DetailScreen.Builder()
         }
       )
     }
@@ -38,6 +39,11 @@ struct DetailView: View {
         },
         label: { Text("Show capacity").foregroundColor(.red) }
       )
+        Button {
+            navigator.go(to: DetailScreen(train: Train(name: "Andrew's", capacity: 1000)), on: currentScreen)
+        } label: {
+            Text("Jump")
+        }
     }
     .navigationTitle(train.name)
   }
